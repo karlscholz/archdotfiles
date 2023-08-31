@@ -147,7 +147,59 @@ if it worked, you're done, lock root account from login via
     sudo pacman -S neofetch htop less
     neofetch
 
-# Desktop Environment
+# Desktop Environment BSPWM
 
     setxkbmap de in bashrc
     xrandr -s 1920x1080
+
+Install Driver
+
+    sudo pacman -S xf86-video-intel
+    sudo pacman -S xf86-video-amdgpu
+    sudo pacman -S nvidia nvidia-utils nvidia-settings
+
+Window manager stuff    
+    
+    sudo pacman -S xorg xorg-xinit bspwm sxhkd dmenu nitrogen picom xfce4-terminal firefox arandr
+    mkdir ~/.config/bspwm
+    mkdir ~/.config/sxhkd
+    cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/
+    cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/
+    nano ~/.config/sxhkd/sxhkdrc
+        -> change `urxvt` under terminal to `xfce4-terminal`
+    cp /etc/X11/xinit/xinitrc ~/.xinitrc
+    nano ~/.xinitrc
+
+-> delete everything and add
+
+    setxkbmap de &
+    picomf -f &
+    exec bspwm
+save and exit, check:
+
+    startx
+    Super+Enter
+    Super+W
+    Super+Spacebar -> arandr -> Select monitor, select resolution, save as ~/.screenlayout/monitors.sh
+    chmod +x ~/.screenlayout/monitors.sh
+    nano .xinitrc
+-> add `` before `picom` and definitely before `exec bspwm`
+    
+    ~/.screenlayout/monitors.sh
+    nitrogen --restore &
+    xsetroot -cursor_name leftptr
+
+done
+
+    startx
+    firefox #get wallpaper via browser
+    Super+Spacebar -> nitrogen -> preferences -> Add -> Pictures Folder -> Select -> Ok -> Select Wallpaper -> Apply
+
+    Super+Enter 
+-> xfce4-terminal -> edit -> preferences 
+- General -> scrolling -> Scrollbar is -> disabled; 
+- Appearance -> Background -> Transparent background -> 0.50
+- Appearance -> Opening New Windows -> only check Display borders around new windows
+- Appearance -> Font -> so its visible
+
+    Super+Enter
