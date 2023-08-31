@@ -147,7 +147,9 @@ if it worked, you're done, lock root account from login via
     sudo pacman -S neofetch htop less
     neofetch
 
-# Desktop Environment BSPWM
+# Desktop Environment 
+
+## BSPWM
 
     setxkbmap de in bashrc
     xrandr -s 1920x1080
@@ -202,3 +204,29 @@ done
 - Appearance -> Opening New Windows -> only check Display borders around new windows
 - Appearance -> Font -> so its visible
 - reload terminal
+
+For keybindings make familiar with 
+
+    nano .config/sxhkd/sxhkdrc
+
+
+## 2nd monitor
+
+    xrandr
+-> output name of 2nd monitor (e.g. HDMI-1-1)
+
+    nano .config/bspwm/bspwmrc
+change 
+    
+    bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+to
+    
+    bspc monitor -d 1 2 3 4 5
+    bspc monitor HDMI-1-1 -d 6 7 8 9 10
+
+## Polybar
+
+    sudo yay -S polybar pacman-contrib ttf-font-awesome siji-git pulseaudio alsa-utils
+    -> 1, N
+    mkdir ~/.config/polybar
+    cp /usr/share/doc/polybar/config ~/.config/polybar/
