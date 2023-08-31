@@ -173,7 +173,7 @@ Window manager stuff
 -> delete everything and add
 
     setxkbmap de &
-    picomf -f &
+    picom -f &
     exec bspwm
 save and exit, check:
 
@@ -187,18 +187,19 @@ save and exit, check:
     
     ~/.screenlayout/monitors.sh
     nitrogen --restore &
-    xsetroot -cursor_name leftptr
+    xsetroot -cursor_name left_ptr
 
 done
 
     startx
     firefox #get wallpaper via browser
-    Super+Spacebar -> nitrogen -> preferences -> Add -> Pictures Folder -> Select -> Ok -> Select Wallpaper -> Apply
+    Super+Spacebar -> nitrogen -> preferences -> Add -> Downloads Folder -> Select -> Ok -> Select Wallpaper -> Apply
 
     Super+Enter 
 -> xfce4-terminal -> edit -> preferences 
 - General -> scrolling -> Scrollbar is -> disabled; 
 - Appearance -> Background -> Transparent background -> 0.50
+- reload terminal
 - Appearance -> Opening New Windows -> only check Display borders around new windows
 - Appearance -> Font -> so its visible
 
