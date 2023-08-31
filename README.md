@@ -199,8 +199,6 @@ done
 -> xfce4-terminal -> edit -> preferences 
 - General -> scrolling -> Scrollbar is -> disabled; 
 - Appearance -> Background -> Transparent background -> 0.50
-- reload terminal
 - Appearance -> Opening New Windows -> only check Display borders around new windows
 - Appearance -> Font -> so its visible
-
-    Super+Enter
+- reload terminal
