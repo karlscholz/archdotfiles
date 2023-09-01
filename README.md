@@ -195,7 +195,7 @@ done
 
     startx
     firefox #get wallpaper via browser
-    Super+Spacebar -> nitrogen -> preferences -> Add -> Downloads Folder -> Select -> Ok -> Select Wallpaper -> Apply
+    Super+Spacebar -> nitrogen -> preferences -> Add -> Downloads Folder -> Select -> Ok -> Select Wallpaper -> Zoomed Fill -> Apply
 
     Super+Enter 
 -> xfce4-terminal -> edit -> preferences 
