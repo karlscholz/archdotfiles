@@ -151,9 +151,6 @@ if it worked, you're done, lock root account from login via
 
 ## BSPWM
 
-    setxkbmap de in bashrc
-    xrandr -s 1920x1080
-
 Install Driver
 
     sudo pacman -S xf86-video-intel
@@ -177,12 +174,19 @@ Window manager stuff
     setxkbmap de &
     picom -f &
     exec bspwm
-save and exit, check:
+save and exit, do:
+
+    echo "setxkbmap de > /dev/null 2>&1" >> ~/.bashrc # Ensures keyboard is always correct
 
     startx
-    Super+Enter
-    Super+W
-    Super+Spacebar -> arandr -> Select monitor, select resolution, save as ~/.screenlayout/monitors.sh
+try:
+    
+- Super+Enter
+- Super+W
+- Super+Spacebar -> arandr -> Select monitor, select resolution, save as ~/.screenlayout/monitors.sh
+
+cmds:
+
     chmod +x ~/.screenlayout/monitors.sh
     nano .xinitrc
 -> add `` before `picom` and definitely before `exec bspwm`
@@ -271,22 +275,60 @@ to
     cp /usr/share/doc/polybar/examples/config.ini ~/.config/polybar/
     nano ~/.config/polybar/config.ini
     nano ~/.xinitrc
-    -> before picom: `polybar &`
+    -> add before picom: `polybar &`
+
+## Activate Trackpad Tapping
+
+    sudo nano /etc/X11/xorg.conf.d/40-libinput.conf
+-> add
+
+    Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "NaturalScrolling" "true"
+    EndSection
+
 
 ## Audio and Brightness Keys
 
-    sudo pacman -S pulseaudio pulseaudio-alsa alsa-utils
-    sudo pacman -S xorg-xbacklight
-    sudo pacman -S playerctl
-    sudo pacman -S brightnessctl
-    sudo pacman -S pavucontrol
-    sudo pacman -S xfce4-power-manager
-    sudo pacman -S acpi
-    sudo pacman -S acpid
-    sudo systemctl enable acpid
-    sudo systemctl start acpid
-    sudo nano /etc/acpi/handler.sh
+    sudo pacman -S pulseaudio pulseaudio-alsa alsa-utils brightnessctl
+    pulseaudio --start
+    nano ~/.config/sxhkd/sxhkdrc
+add ->
+    # Increase volume
+    XF86AudioRaiseVolume
+        amixer -q sset Master 5%+
 
+    # Decrease volume
+    XF86AudioLowerVolume
+        amixer -q sset Master 5%-
+
+    # Mute volume
+    XF86AudioMute
+        amixer -q sset Master toggle
+
+    XF86AudioMicMute
+        amixer sset 'Capture' toggle
+    
+    # Increase brightness
+    XF86MonBrightnessUp
+        brightnessctl s +10%
+
+    # Decrease brightness, if brightness is 10% decrease to 1% rather than 0 directly
+    XF86MonBrightnessDown
+        if [ $(brightnessctl g) -eq 10 ]; then brightnessctl s 9%; else brightnessct> 
+
+-> add to ~/.xinitrc before picom (brightness is default 50% every boot):
+
+    brightnessctl s 100%
+
+-> run this once, it should remember (microphone volume is default 0%)
+
+    amixer sset 'Capture' 100%
+    
 ## Official Visual Studio Code (Copilot)
 
 download from https://code.visualstudio.com/# -> `other platforms` the .tar.gz file
