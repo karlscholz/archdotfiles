@@ -228,8 +228,10 @@ to
 
     sudo pacman -S polybar
     mkdir ~/.config/polybar
-    cp /usr/share/doc/polybar/config ~/.config/polybar/
-    nano ~/.config/polybar/config
+    cp /usr/share/doc/polybar/examples/config.ini ~/.config/polybar/
+    nano ~/.config/polybar/config.ini
+    nano ~/.xinitrc
+    -> before picom: `polybar &`
 
 ## Audio and Brightness Keys
 
