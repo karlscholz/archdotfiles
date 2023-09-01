@@ -162,7 +162,7 @@ Install Driver
 
 Window manager stuff    
     
-    sudo pacman -S xorg xorg-xinit bspwm sxhkd dmenu nitrogen picom alacritty firefox arandr
+    sudo pacman -S xorg xorg-xinit bspwm sxhkd dmenu feh picom alacritty firefox arandr
     mkdir ~/.config/bspwm
     mkdir ~/.config/sxhkd
     cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/
@@ -188,14 +188,14 @@ save and exit, check:
 -> add `` before `picom` and definitely before `exec bspwm`
     
     ~/.screenlayout/monitors.sh
-    nitrogen --restore &
+    feh --bg-scale $HOME/archdotfiles/wallpapers/archgalaxy.jpg &
     xsetroot -cursor_name left_ptr
 
 done
 
     startx
     firefox #get wallpaper via browser
-    Super+Spacebar -> nitrogen -> preferences -> Add -> Downloads Folder -> Select -> Ok -> Select Wallpaper -> Zoomed Fill -> Apply
+    Select -> Ok -> Select Wallpaper -> Zoomed Fill -> Apply
 
     Super+Enter 
     mkdir -p ~/.config/alacritty
@@ -204,24 +204,25 @@ done
 
     # Basic configuration
     window:
-    dimensions:
+      dimensions:
         columns: 80
         lines: 24
-    padding:
+      padding:
         x: 2
         y: 2
-    opacity: 0.5
-
+      opacity: 0.5
+    
     font:
-    normal:
+      normal:
         family: monospace
         style: Bold
-    size: 10.0
-
+      size: 10.0
+    
     colors:
-    primary:
-        background: 'rgba(0, 0, 0, 0.5)'
-        foreground: 'rgba(255, 255, 255, 1.0)'
+      primary:
+        background: '#000000'
+        foreground: '#ffffff'
+
 -> reload terminal
 
 For keybindings make familiar with 
