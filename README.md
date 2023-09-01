@@ -1,3 +1,5 @@
+![Screenshot](screenshots/2023-09-01-204503_1920x1080_scrot.png)
+
 # on Arch-iso:
 
 ## Keyboardlayout
@@ -337,3 +339,9 @@ download from https://code.visualstudio.com/# -> `other platforms` the .tar.gz f
     sudo mv VSCode-linux-x64/ /usr/local/
     sudo ln -s /usr/local/VSCode-linux-x64/code /usr/local/bin/code
 -> restart terminal
+
+## Screenshots:
+
+    sudo pacman -S scrot
+    scrot <(-d 5) # 5 seconds delay> <(-c) # countdown> <(-s) # select area> <filename.png (optional)>
+    scrot -d 5
