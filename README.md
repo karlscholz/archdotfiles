@@ -286,7 +286,7 @@ to
     sudo systemctl start acpid
     sudo nano /etc/acpi/handler.sh
 
-## official Visual Studio Code (Copilot)
+## Official Visual Studio Code (Copilot)
 
 download from https://code.visualstudio.com/# the .tar.gz file
 
