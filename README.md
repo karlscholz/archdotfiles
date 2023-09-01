@@ -162,13 +162,13 @@ Install Driver
 
 Window manager stuff    
     
-    sudo pacman -S xorg xorg-xinit bspwm sxhkd dmenu nitrogen picom xfce4-terminal firefox arandr
+    sudo pacman -S xorg xorg-xinit bspwm sxhkd dmenu nitrogen picom alacritty firefox arandr
     mkdir ~/.config/bspwm
     mkdir ~/.config/sxhkd
     cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/
     cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/
     nano ~/.config/sxhkd/sxhkdrc
-        -> change `urxvt` under terminal to `xfce4-terminal`
+        -> change `urxvt` under terminal to `alacritty`
     cp /etc/X11/xinit/xinitrc ~/.xinitrc
     nano ~/.xinitrc
 
@@ -198,12 +198,31 @@ done
     Super+Spacebar -> nitrogen -> preferences -> Add -> Downloads Folder -> Select -> Ok -> Select Wallpaper -> Zoomed Fill -> Apply
 
     Super+Enter 
--> xfce4-terminal -> edit -> preferences 
-- General -> scrolling -> Scrollbar is -> disabled; 
-- Appearance -> Background -> Transparent background -> 0.50
-- Appearance -> Opening New Windows -> only check Display borders around new windows
-- Appearance -> Font -> so its visible
-- reload terminal
+    mkdir -p ~/.config/alacritty
+    nano ~/.config/alacritty/alacritty.yml
+-> add:
+
+    # Basic configuration
+    window:
+    dimensions:
+        columns: 80
+        lines: 24
+    padding:
+        x: 2
+        y: 2
+    opacity: 0.5
+
+    font:
+    normal:
+        family: monospace
+        style: Bold
+    size: 10.0
+
+    colors:
+    primary:
+        background: 'rgba(0, 0, 0, 0.5)'
+        foreground: 'rgba(255, 255, 255, 1.0)'
+-> reload terminal
 
 For keybindings make familiar with 
 
@@ -219,6 +238,16 @@ add ->
     bspc config pointer_action1      move
     bspc config pointer_action2      resize_side
     bspc config pointer_action3      resize_corner
+
+| Keybind              | Description   |
+|----------------------|---------------|
+| Super + S            | Floating      |
+| Alt + Left Mouse     | Move Window   |
+| Alt + Right Mouse    | Resize Window |
+| Super + T            | Tiled         |
+| Super + Shift + T    | Pseudo-tiled  |
+| Super + F            | Fullscreen    |
+
 
 ## 2nd monitor
 
