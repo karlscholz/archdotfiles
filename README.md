@@ -226,7 +226,21 @@ to
 
 ## Polybar
 
-    sudo yay -S polybar pacman-contrib ttf-font-awesome siji-git pulseaudio alsa-utils
-    -> 1, N
+    sudo pacman -S polybar
     mkdir ~/.config/polybar
     cp /usr/share/doc/polybar/config ~/.config/polybar/
+    nano ~/.config/polybar/config
+
+## Audio and Brightness Keys
+
+    sudo pacman -S pulseaudio pulseaudio-alsa alsa-utils
+    sudo pacman -S xorg-xbacklight
+    sudo pacman -S playerctl
+    sudo pacman -S brightnessctl
+    sudo pacman -S pavucontrol
+    sudo pacman -S xfce4-power-manager
+    sudo pacman -S acpi
+    sudo pacman -S acpid
+    sudo systemctl enable acpid
+    sudo systemctl start acpid
+    sudo nano /etc/acpi/handler.sh
