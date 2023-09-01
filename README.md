@@ -208,7 +208,17 @@ done
 For keybindings make familiar with 
 
     nano .config/sxhkd/sxhkdrc
+    
+To resize and move windows, add these lines to
 
+    nano .config/bspwm/bspwmrc
+add ->
+
+    # move/resize windows
+    bspc config pointer_modifier     mod1
+    bspc config pointer_action1      move
+    bspc config pointer_action2      resize_side
+    bspc config pointer_action3      resize_corner
 
 ## 2nd monitor
 
