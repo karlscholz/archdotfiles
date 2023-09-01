@@ -288,7 +288,7 @@ to
 
 ## Official Visual Studio Code (Copilot)
 
-download from https://code.visualstudio.com/# the .tar.gz file
+download from https://code.visualstudio.com/# -> `other platforms` the .tar.gz file
 
     tar -xzf ~/Downloads/code-stable-x64-1691619534.tar.gz
     sudo mv VSCode-linux-x64/ /usr/local/
