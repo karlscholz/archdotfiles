@@ -285,3 +285,12 @@ to
     sudo systemctl enable acpid
     sudo systemctl start acpid
     sudo nano /etc/acpi/handler.sh
+
+## official Visual Studio Code (Copilot)
+
+download from https://code.visualstudio.com/# the .tar.gz file
+
+    tar -xzf ~/Downloads/code-stable-x64-1691619534.tar.gz
+    sudo mv VSCode-linux-x64/ /usr/local/
+    sudo ln -s /usr/local/VSCode-linux-x64/code /usr/local/bin/code
+-> restart terminal
