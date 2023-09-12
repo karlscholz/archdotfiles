@@ -144,10 +144,11 @@ if it worked, you're done, lock root account from login via
     reboot
         -> try booting to windows
 
-## DONE
+## DONE and useful stuff like Midnight Commander, less, etc
 
-    sudo pacman -S neofetch htop less
+    sudo pacman -S neofetch mc less htop
     neofetch
+    mc -> Options -> Appearance -> Skin -> yadt256-defbg
 
 # Desktop Environment 
 
