@@ -346,3 +346,8 @@ download from https://code.visualstudio.com/# -> `other platforms` the .tar.gz f
     sudo pacman -S scrot
     scrot <(-d 5) # 5 seconds delay> <(-c) # countdown> <(-s) # select area> <filename.png (optional)>
     scrot -d 5
+
+## Firefox:
+
+    Theme: Dark
+    about:config -> ui.key.menuAccessKeyFocuses -> false (alt key is used by bspwm, nobody needs the file-edit-etc menu anyway)
