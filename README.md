@@ -1,4 +1,4 @@
-![Screenshot](screenshots/2023-09-01-204503_1920x1080_scrot.png)
+![Screenshot](screenshots/2023-09-13-163910_1920x1080_scrot.png)
 
 # on Arch-iso:
 
