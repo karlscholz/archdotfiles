@@ -146,7 +146,7 @@ if it worked, you're done, lock root account from login via
 
 ## DONE and useful stuff like Midnight Commander, less, etc
 
-    sudo pacman -S neofetch mc less htop
+    sudo pacman -S neofetch mc less htop net-tools remmina
     neofetch
     mc -> Options -> Appearance -> Skin -> yadt256-defbg
 
