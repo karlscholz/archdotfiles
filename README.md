@@ -146,7 +146,7 @@ if it worked, you're done, lock root account from login via
 
 ## DONE and useful stuff like Midnight Commander, less, etc
 
-    sudo pacman -S neofetch mc less htop net-tools remmina
+    sudo pacman -S neofetch mc less htop net-tools remmina tree
     neofetch
     mc -> Options -> Appearance -> Skin -> yadt256-defbg
 
@@ -332,6 +332,60 @@ add ->
 
     amixer sset 'Capture' 100%
     
+# Grub Dual Boot Order and Themes
+(forked from ChrisTitusTech)
+mount windows boot manager partition in order for os-prober to find it
+
+    sudo fdisk -l
+    -> Search for EFI System partition of Windows
+    sudo mkdir /mnt/windowsefi
+    sudo mount /dev/nvme0n1p2 /mnt/windowsefi
+clone theme installer
+
+    cd ~
+    git clone https://github.com/karlscholz/Top-5-Bootloader-Themes.git
+    cd Top-5-Bootloader-Themes
+    sudo ./install.sh
+    1) Vimix
+save current `grub.cfg`
+
+    cd /boot/grub
+    sudo cp grub.cfg grub.cfg.bak
+open `grub.cfg` and remove unwanted entries
+
+    sudo nano grub.cfg
+change entries and order of entries, e.g. for Windows...
+
+    ### BEGIN /etc/grub.d/30_os-prober ###
+    menuentry 'Windows Boot Manager (on /dev/nvme0n1p2)' --class windows --class os $menuentry_id_option 'osprober-efi-3065-1F45' {
+    insmod part_gpt
+    insmod fat
+    search --no-floppy --fs-uuid --set=root 3065-1F45
+    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+    }
+    ### END /etc/grub.d/30_os-prober ###
+to e.g.:
+    
+    ### BEGIN /etc/grub.d/30_os-prober ###
+    menuentry 'Windows 11' --class win...
+    ...
+    ### END /etc/grub.d/30_os-prober ###
+and delete unwanted options like `Advanced options for Arch Linux` and `UEFI Firmware Settings`
+
+if you want you can also change the timeout from 60 seconds to sth else, find the line `set timeout=60` and edit.
+
+save, exit and reboot, if you bricked grub, boot from arch iso, 
+find main linux partition
+
+    fdisk -l
+mount it
+
+    mount /dev/sda3 /mnt
+    arch-chroot /mnt
+    
+use chroot and restore `grub.cfg.bak` or rebuild grub.cfg via `grub-mkconfig -o /boot/grub/grub.cfg`
+
+# Miscellaneous
 ## Official Visual Studio Code (Copilot)
 
 download from https://code.visualstudio.com/# -> `other platforms` the .tar.gz file
