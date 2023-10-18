@@ -374,7 +374,8 @@ and delete unwanted options like `Advanced options for Arch Linux` and `UEFI Fir
 
 if you want you can also change the timeout from 60 seconds to sth else, find the line `set timeout=60` and edit.
 
-save, exit and reboot, if you bricked grub, boot from arch iso, 
+save, exit and reboot, `if you bricked grub` (which you'll definitely do at least once), don't panic and boot from arch iso boot stick.
+
 find main linux partition
 
     fdisk -l
@@ -405,3 +406,8 @@ download from https://code.visualstudio.com/# -> `other platforms` the .tar.gz f
 
     Theme: Dark
     about:config -> ui.key.menuAccessKeyFocuses -> false (alt key is used by bspwm, nobody needs the file-edit-etc menu anyway)
+
+
+# TODO: 
+- rice dmenu
+- battery percentage in polybar
